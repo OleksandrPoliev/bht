@@ -1,0 +1,10 @@
+{% extends 'booksmain/base.html '%}
+{% load crispy_forms_tags %}
+{% block content %}
+<form style="margin-left:1%;margin-top:1%;" method="post" enctype="multipart/form-data">
+    {{ form|crispy }}
+    {% csrf_token %}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+    <button style="margin-top:1%;" type="submit" class="btn btn-success">add</button>
+</form>
+{% endblock %}

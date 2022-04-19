@@ -1,0 +1,11 @@
+{% extends 'booksmain/base.html '%}
+{% load books_tags %}
+{% block content %}
+<form style="margin-left:1%;margin-top:1%;" action="" method="POST">
+    {% csrf_token %}
+    <input name="gooogle">
+</form>
+    <button style="margin-left:1%;margin-top:1%;" type="submit" class="btn btn-success">ok</button>
+
+
+{% endblock %}

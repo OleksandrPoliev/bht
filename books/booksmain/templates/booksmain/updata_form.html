@@ -1,0 +1,8 @@
+{% extends 'booksmain/base.html '%}
+{% load crispy_forms_tags %}
+{% block content %}
+<form style="margin-left:1%;margin-top:1%;" method="post">{% csrf_token %}
+    {{ form|crispy }}
+    <input style="margin-top:1%;" type="submit" class="btn btn-success" value="Update">
+</form>
+{% endblock %}

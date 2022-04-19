@@ -1,0 +1,77 @@
+{% extends 'booksmain/base.html '%}
+{% load books_tags %}
+{% block content %}
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    {% if message.tags %}
+    <li class="{{ message.tags }}">{{ message }}</li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">api</th>
+        <th scope="col">title</th>
+        <th scope="col">author</th>
+        <th scope="col">publish date</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">num pages</th>
+        <th scope="col">book_img</th>
+        <th scope="col">book_language</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    {% if ser %}
+      {%for item in qs %}
+        <tr>
+            <th scope="row"><a href="{% url 'mainapp:updata' item.pk %}">{{item.pk}}</a></th>
+            <td>{{item.title}}</td>
+            <td>{{item.author}}</td>
+            <td>{{item.publish_date}}</td>
+            <td>{{item.ISBN}}</td>
+            <td>{{item.num_pages}}</td>
+            <td><img src="{{item.book_img}}"></td>
+            <td>{{item.book_language}}</td>
+            <td>
+                <button><a href="{% url 'mainapp:updata' item.pk %}">Delete</a></button>
+            </td>
+            <td>
+                <button><a href="{% url 'mainapp:updata' item.pk %}">Update</a></button>
+            </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+
+  {% getallbook as books %}
+    {% for item in books %}
+      <tr>
+          <th scope="row"><a href="{% url 'mainapp:books-detail' item.title %}">{{item.pk}}</a></th>
+          <td>{{item.title}}</td>
+          <td>{{item.author}}</td>
+          <td>{{item.publish_date}}</td>
+          <td>{{item.ISBN}}</td>
+          <td>{{item.num_pages}}</td>
+          <td><img src="{{item.book_img}}"></td>
+          <td>{{item.book_language}}</td>
+          <td>{{item.author}}</td>
+          <td><a href="{% url 'mainapp:del' item.pk %}">
+              <button type="button" class="btn btn-danger">Delete</button>
+          </a></td>
+          <td><a href="{% url 'mainapp:updata' item.pk %}">
+              <button type="button" class="btn btn-primary">Update</button>
+          </a></td>
+      </tr>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
