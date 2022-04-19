@@ -6,7 +6,7 @@ from .Validators import ISBN_validator
 class BooksModel(models.Model):
     title=models.CharField(max_length=255)
     author = models.CharField(max_length=200)
-    publish_date = models.DateField(default=timezone.now)
+    publish_date = models.CharField(max_length=200)
     ISBN=models.IntegerField(validators=[ISBN_validator])
     num_pages=models.IntegerField()
     book_img=models.URLField()
