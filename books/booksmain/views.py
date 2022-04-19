@@ -80,7 +80,7 @@ class GoogleBooks(ListView):
                 BooksModel.objects.create(
                     title=data['title'],
                     author=data['authors'][0],
-                    publish_date=data['publishedDate'][:4],
+                    publish_date=data['publishedDate'],
                     ISBN=data['industryIdentifiers'][1]['identifier'],
                     num_pages=data['pageCount'],
                     book_img=data['imageLinks']['smallThumbnail'],
