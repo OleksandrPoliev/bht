@@ -70,7 +70,7 @@ class GoogleBooks(ListView):
 
     def post(self, request, *args, **kwargs):
         if request.method == 'POST':
-            # try:
+            try:
                 googleapikey = ""
                 google = request.POST['gooogle']
                 params = {"q": google, 'key': googleapikey}
@@ -89,10 +89,10 @@ class GoogleBooks(ListView):
                 success_message = 'Success! We just import book'
                 messages.success(self.request, success_message)
                 return render(request, 'main.html')
-            # finally:
-            #     error_message = 'something wrong try again '
-            #     messages.error(self.request, error_message)
-            #     return render(request, 'main.html')
+            finally:
+                error_message = 'something wrong try again '
+                messages.error(self.request, error_message)
+                return render(request, 'main.html')
 
 
 class googleapi(APIView):
