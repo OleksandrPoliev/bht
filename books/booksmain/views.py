@@ -76,7 +76,7 @@ class GoogleBooks(ListView):
             r = requests.get(url="https://www.googleapis.com/books/v1/volumes", params=params)
             rq_to_google = r.json()
             data = rq_to_google['items'][1]['volumeInfo']
-            BooksModel.objects.get_or_create(
+            BooksModel.objects.create(
                         title=data['title'],
                         author=data['authors'][0],
                         publish_date=str(data['publishedDate']),
