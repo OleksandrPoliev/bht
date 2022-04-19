@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-=qv6=y+qf#-=x2a9e@^(1d$2d@dz4v@2@x64ds195ue*n3h!1!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['bookshubtask.herokuapp.com']
 
 
 # Application definition
@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware,',
 ]
 
 ROOT_URLCONF = 'books.urls'
