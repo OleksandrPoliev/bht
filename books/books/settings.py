@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-=qv6=y+qf#-=x2a9e@^(1d$2d@dz4v@2@x64ds195ue*n3h!1!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bookshubtask.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
