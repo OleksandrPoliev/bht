@@ -14,7 +14,7 @@ from booksmain.serializers import bookserializer
 
 class Main_View(ListView):
     model = BooksModel
-    template_name = 'booksmain/main.html'
+    template_name = 'main.html'
 
     def post(self, request, *args, **kwargs):
         if request.method == 'POST':
@@ -25,14 +25,14 @@ class Main_View(ListView):
                 success_message = 'Success! We dont fount  book'
                 messages.success(request, success_message)
                 return redirect('/')
-            return render(request, 'booksmain/main.html', {"ser": ser, 'qs': qs})
+            return render(request, 'main.html', {"ser": ser, 'qs': qs})
         else:
-            return render(request, 'booksmain/main.html')
+            return render(request, 'main.html')
 
 
 class Add_Book(CreateView):
     model = BooksModel
-    template_name = 'booksmain/crud_books.html'
+    template_name = 'crud_books.html'
     form_class = AddPostForm
 
     def form_valid(self, form):
@@ -43,7 +43,7 @@ class Add_Book(CreateView):
 
 class AuthorUpdateView(UpdateView):
     model = BooksModel
-    template_name = 'booksmain/updata_form.html'
+    template_name = 'updata_form.html'
     form_class = AddPostForm
 
 
@@ -65,7 +65,7 @@ class DeleteBookView(DeleteView):
         return self.delete(*args,**kwargs)
 class GoogleBooks(ListView):
 
-    template_name = 'booksmain/import_book.html'
+    template_name = 'import_book.html'
     model = BooksModel
 
     def post(self, request, *args, **kwargs):
@@ -85,7 +85,7 @@ class GoogleBooks(ListView):
                         book_img=data['imageLinks']['smallThumbnail'],
                         book_language=data['language'],
                     )
-            return render(request, 'booksmain/main.html')
+            return render(request, 'main.html')
 
 class googleapi(APIView):
     def get(self,request):
