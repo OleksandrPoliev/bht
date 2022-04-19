@@ -1,7 +1,5 @@
 from django import forms
-
-from booksmain.Validators import ISBN_validator
-from booksmain.models import BooksModel
+from .models import BooksModel
 
 
 class AddPostForm(forms.ModelForm):

@@ -5,7 +5,7 @@ from django.urls import path , include
 from rest_framework import routers
 
 
-from booksmain.views import Main_View, Add_Book, AuthorUpdateView, GoogleBooks, BooksAPIView, DeleteBookView
+from .views import Main_View, Add_Book, AuthorUpdateView, GoogleBooks, BooksAPIView, DeleteBookView
 
 app_name = "mainapp"
 
