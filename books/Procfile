@@ -1,1 +1,2 @@
-web: gunicorn books:app --log-file=-
+web: gunicorn books.wsgi --log-file=-
+
